@@ -68,9 +68,9 @@ This approach involves a comprehensive examination of various factors influencin
   <thead>
     <tr>
       <th rowspan="2">Year</th>
-      <th colspan="2">Attended (Count, %)</th>
-      <th colspan="2">DNA (Count, %)</th>
-      <th colspan="2">Unknown (Count, %)</th>
+      <th colspan="2">Attended (Average, %)</th>
+      <th colspan="2">DNA (Average, %)</th>
+      <th colspan="2">Unknown (Average, %)</th>
     </tr>
     <tr>
       <th>Nation wide</th>
@@ -235,11 +235,11 @@ We can infer that -
   <tr>
     <th>HCP_TYPE</th>
     <th>APPT_MODE</th>
-    <th>National</th>
+    <th>Nation wide</th>
     <th>SNEE</th>
-    <th>National</th>
+    <th>Nation wide</th>
     <th>SNEE</th>
-    <th>National</th>
+    <th>Nation wide</th>
     <th>SNEE</th>
   </tr>
   <tr>

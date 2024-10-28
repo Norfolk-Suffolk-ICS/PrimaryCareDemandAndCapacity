@@ -11,7 +11,6 @@ source .venv/bin/activate
 echo "Installing dependencies..."
 pip install -r requirements.txt
 
-
 # step 2: unit tests
 echo "Running unit tests..."
 pip install pytest
@@ -31,11 +30,11 @@ echo "Running simulation..."
 # step 5:
 # Move the generated png files to the images folder
 echo "Moving png files to images folder..."
-mv outputs/plots/*.png staticWebsite/content/img/
+mv outputs/plots/*.png PelicanWebsite/content/img/
 
 # step 6:
 echo "Moving notebook files to notebooks_html folder..."
-mv outputs/notebooks/*.html staticWebsite/content/notebooks_html/
+mv outputs/notebooks/*.html PelicanWebsite/content/notebooks_html/
 
 # step 7: run the catalog builder
 echo "Running catalog builder..."
@@ -43,7 +42,7 @@ python -m src.catalog_to_markdown
 
 # step 5: Run Pelican build
 echo "Running Pelican server..."
-cd staticWebsite
+cd PelicanWebsite
 pelican -r -l
 
 

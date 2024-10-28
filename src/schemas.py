@@ -3,15 +3,12 @@ from enum import Enum
 from abc import ABC, abstractmethod
 from io import BytesIO
 from zipfile import ZipFile
-
-
-# from typing_extensions import Annotated
 import requests
 from pydantic import BaseModel, Field
 import yaml
 import pandas as pd
 
-import src.constants as const
+import constants as const
 
 
 class DataCatalogEntryType(Enum):
@@ -300,7 +297,6 @@ class DataCatalog(BaseModel):
             if entry.name == scenario_name:
                 return entry
         raise KeyError(f"Could not find scenario data catalog entry with name {name}")
-
 
 
 # class CommunityReferralRates(BaseModel):

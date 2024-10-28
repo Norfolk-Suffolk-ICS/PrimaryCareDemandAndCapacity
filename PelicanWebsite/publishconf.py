@@ -16,13 +16,28 @@ CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 THEME = "snee_theme"
-DELETE_OUTPUT_DIRECTORY = True
 PATH = 'content'
 TIMEZONE = 'GMT'
-STATIC_PATHS = ['img','extras']
-PAGE_PATHS = ['notebooks-html']
+STATIC_PATHS = ['img','extras','notebooks-html']
+#PAGE_PATHS = ['notebooks-html']
 PAGE_ORDER_BY = 'order'
 ARTICLE_ORDER_BY = 'order'
+
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+DEFAULT_PAGINATION = 5
+
+EXTRA_PATH_METADATA = {
+    'notebooks-html/1a_AppointmentDuration.html': {'path': '1a_AppointmentDuration.html'},
+    'notebooks-html/1c_DemographicPopGrowth.html': {'path': '1c_DemographicPopGrowth.html'},
+    'notebooks-html/Referral_rate_2_sankey.html': {'path': 'Referral_rate_2_sankey.html'},
+    'notebooks-html/Referral_rate_4_sankey.html': {'path': 'Referral_rate_4_sankey.html'},
+}
+
+ARTICLE_EXCLUDES = ['notebooks-html']
+
 
 # Following items are often useful when publishing
 

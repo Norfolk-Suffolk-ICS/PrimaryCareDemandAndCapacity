@@ -10,7 +10,7 @@ from sklearn.linear_model import Ridge, LinearRegression
 from sklearn import metrics
 import scipy.stats as stats
 
-import src.constants as const
+import constants as const
 
 from sklearn import set_config
 

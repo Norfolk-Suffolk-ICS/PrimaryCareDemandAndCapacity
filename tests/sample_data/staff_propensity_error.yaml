@@ -1,16 +1,17 @@
 02G:
   GP: 0.4097
-  Other Practice Staff: 0.587
+  Other Practice staff: 0.587
   Unknown: 0.0033
 02H:
   GP: 0.5547
-  Other Practice Staff: 0.438
+  Other Practice staff: 0.438
   Unknown: 0.0074
 02M:
   GP: 0.3626
-  Other Practice Staff: 0.5677
+  Other Practice staff: 0.5677
   Unknown: 0.0697
 02P:
   GP: 0.413
-  Other Practice Staff: 0.576
+  Other Practice staff: 0.576
   Unknown: 0.022 # note this will cause error as sum > 1
+

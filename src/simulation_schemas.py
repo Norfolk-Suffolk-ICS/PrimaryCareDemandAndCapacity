@@ -23,7 +23,7 @@ PROPENSITY_FIELD_ARGS = {
 }
 
 # this is used to confirm that the weights of a propensity sum to 1.0
-PROPENSITY_ACCURACY_THRESHOLD = 0.001
+PROPENSITY_ACCURACY_THRESHOLD = 0.002
 
 
 class YamlLoader(ABC):
@@ -45,22 +45,6 @@ class YamlLoader(ABC):
             yaml_data = yaml.safe_load(f)
             class_instance = cls(**yaml_data)
             return class_instance
- 
-        
-class AreaModel(ABC):
-    """Base class to define the methods that the area model must implement"""
-
-    def get_area(self, area: str) -> Type[BaseModel]:
-        """
-        Get the propensity for a given area.
-
-        Args:
-            area (str): The area to get the details for.
-
-        Returns:
-            Dict[str, float]: The propensity for the given area.
-        """
-        return self.root.get(area)
 
     
 class BaseChoice(BaseModel, ABC):
@@ -88,6 +72,9 @@ class BaseChoice(BaseModel, ABC):
             return field_choices[0]
         else:
             return
+        
+    class Config:
+        case_sensitive = False
 
 
 # Define a custom exception class for better error handling
@@ -110,9 +97,11 @@ class SumTo1Choice(BaseChoice, ABC):
 
         propensity_sum =sum(self.model_dump().values())
         # Use the custom exception for raising errors
-        if not (1 - PROPENSITY_ACCURACY_THRESHOLD <= propensity_sum <= 1 + PROPENSITY_ACCURACY_THRESHOLD):
+        lower_threshold = 1 - PROPENSITY_ACCURACY_THRESHOLD
+        upper_threshold = 1 + PROPENSITY_ACCURACY_THRESHOLD
+        if not (lower_threshold <= propensity_sum <= upper_threshold):
             raise PropensityError(f"The sum of delivery propensities must be close to 1 (within tolerance\
-                {PROPENSITY_ACCURACY_THRESHOLD}). Got {propensity_sum:.4f} instead.")
+                {PROPENSITY_ACCURACY_THRESHOLD}). Got {propensity_sum:.6f} instead.")
         
         return self
 
@@ -139,7 +128,6 @@ class AreaModel(ABC):
 
 class PopulationBaseline(BaseModel):
     """Class to represent the population baseline"""
-
     pass
 
 
@@ -297,9 +285,17 @@ class StaffDidNotAttendRatesByDelivery(BaseChoice):
     telephone: float = Field(alias="Telephone", **PROPENSITY_FIELD_ARGS)
     unknown: float = Field(alias="Unknown", **PROPENSITY_FIELD_ARGS)
     video_online: float = Field(alias="Video/Online", **PROPENSITY_FIELD_ARGS)
+    
+    def did_patient_attend(self, appointment_mode:str)->bool:
+        # randomly choose a number between 0 and 1
+        random_num = random.random()
+        # get the propensity for the given appointment mode
+        propensity = getattr(self, appointment_mode.lower().replace(" ", "_").replace("/","_").replace("-","_"))
+        # return True if the random number is greater than the propensity to NOT attend
+        return random_num > propensity
 
 
-class AreaDidNotAttendRates(BaseModel):
+class DidNotAttendRates(BaseModel):
     """
     Class to represent the did not attend rates for a given area.
     The fields are the staff types and the values
@@ -307,26 +303,28 @@ class AreaDidNotAttendRates(BaseModel):
 
     gp: StaffDidNotAttendRatesByDelivery = Field(..., alias="GP", default_factory=dict)
     other_practice_staff: StaffDidNotAttendRatesByDelivery = Field(
-        ..., alias="Other Practice Staff", default_factory=dict
+        ..., alias="Other Practice staff", default_factory=dict
     )
     unknown: StaffDidNotAttendRatesByDelivery = Field(
         ..., alias="Unknown", default_factory=dict
     )
-    def get_staff_type(self, staff_type:str)->StaffDidNotAttendRatesByDelivery:
+    def _get_staff_type(self, staff_type:str)->StaffDidNotAttendRatesByDelivery:
         return getattr(self, staff_type.lower().replace(" ", "_"))
+    
 
 
-class DidNotAttendRatesByArea(RootModel[Dict[str, AreaDidNotAttendRates]], YamlLoader, AreaModel):
-    """Class to load and validate the did not attend rates yaml file for a yaml file of areas"""
-
-    def did_patient_attend(self, staff_type:str,area:str, appointment_mode:str)->bool:
-
-        # randomly choose a staff type depending on the area
-        random_num = random.random() # random between 0 and 1
-        did_not_attend_probability = self.get_area(area).get_staff_type(staff_type).model_dump(by_alias=True)[appointment_mode]
-        # if the random number is better than probability, the patient attended
-        return random_num > did_not_attend_probability       
-
+class DidNotAttendRatesByArea(RootModel[Dict[str, DidNotAttendRates]], YamlLoader, AreaModel):
+    """Class to load and validate the did not attend rates yaml file for a yaml file of areas"""   
+    def did_patient_attend(self, area:str, staff_type:str, appointment_mode:str)->bool:
+        
+        #
+        area_rates:DidNotAttendRates = self.get_area(area)
+        
+        # get the nested class
+        staff_rates:StaffDidNotAttendRatesByDelivery = area_rates._get_staff_type(staff_type)
+        
+        # run the did_patient_attend method of the StaffDidNotAttendRatesByDelivery class
+        return staff_rates.did_patient_attend(appointment_mode)
 
 class AppointmentStaffChoice(SumTo1Choice):
     """
@@ -334,8 +332,29 @@ class AppointmentStaffChoice(SumTo1Choice):
     """
 
     gp: float = Field(alias="GP", **PROPENSITY_FIELD_ARGS)
-    other_practice_staff: float = Field(alias="Other Practice Staff", **PROPENSITY_FIELD_ARGS)
+    other_practice_staff: float = Field(alias="Other Practice staff", **PROPENSITY_FIELD_ARGS)
     unknown: float = Field(alias="Unknown", **PROPENSITY_FIELD_ARGS)
+    
+    def pick(self)->str:
+        """Selects an item using the superclass's pick method. If the selected item is 'Unknown',
+        it recursively calls itself until a valid item is selected. 
+        This will automatically balance the probabilities of the other items, over enough iterations.
+
+      
+
+        Returns
+        -------
+        str
+            The selected item, guaranteed not to be 'Unknown'.
+        """
+        # make an original choice
+        choice_ = super().pick()
+        # if the choice is unknown, recursively call the pick method
+        if choice_ == 'Unknown':
+            return self.pick()
+        else:
+            # if the choice is not unknown, return it
+            return choice_
     
 
 class StaffPropensityByArea(RootModel[Dict[str, AppointmentStaffChoice]], YamlLoader, AreaModel):
@@ -345,7 +364,7 @@ class StaffPropensityByArea(RootModel[Dict[str, AppointmentStaffChoice]], YamlLo
         # randomly choose a staff type depending on the area
         area_model:AppointmentStaffChoice = self.get_area(area)
 
-        return area_model.pick()    
+        return area_model.pick()
 
 
 class AppointmentDeliveryChoice(SumTo1Choice):
@@ -414,3 +433,34 @@ class NonGPStaffMixByArea(RootModel[Dict[str, NonGPStaffMix]], YamlLoader, AreaM
 
 class AdminStaffFTERequirementByArea(RootModel[Dict[str, float]], YamlLoader, AreaModel):
     """Class to load and validate the admin staff FTE requirement yaml file for a yaml file of areas"""
+    
+    
+class DailyForecastAppointments(RootModel[Dict[dt.date, int]]):
+    """class to load in forecasts of appointments per day"""
+    def get_forecast_for_day(self, date:dt.date):
+        return self.root.get(date)
+
+class DailyForecastAppointmentsByArea(RootModel[Dict[str, DailyForecastAppointments]], YamlLoader, AreaModel):
+    """Class to load and validate the daily forecast appointments yaml file for a yaml file of areas"""
+
+class AcuteReferralRates(BaseModel):
+    gp: float= Field(alias="GP_Ref_rate")
+    other: float = Field(alias="Others_Ref_rate")
+    
+    def did_refer(self, staff_type:str)->bool:
+        """returns True if the patient was referred"""
+        random_num = random.random()
+        # get the propensity for the given staff type
+        propensity = getattr(self, staff_type.lower().replace(" ","_"))
+        # if the random number is less than the propensity (0-1), the patient was referred
+        return random_num < propensity
+
+class AcuteReferralRatesByArea(RootModel[Dict[str, AcuteReferralRates]], YamlLoader, AreaModel):
+    """Class to load and validate the acute referral rates yaml file for a yaml file of areas"""
+    
+    def did_refer(self, area:str, staff_type:str)->bool:
+        """returns True if the patient was referred"""
+        area_rates:AcuteReferralRates = self.get_area(area)
+        return area_rates.did_refer(staff_type)
+    
+    

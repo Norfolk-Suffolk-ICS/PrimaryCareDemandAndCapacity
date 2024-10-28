@@ -17,13 +17,16 @@ on:
         default: "output/"
         description: "Where to output the generated files (`pelican`'s `--output` option)"
         type: string
+
 permissions:
   contents: read
   pages: write
   id-token: write
+  
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -3,7 +3,7 @@ from typing import Callable, Dict, Literal, Type, Any
 from scipy.stats import lognorm, expon
 import numpy as np
 
-import src.constants as const
+import constants as const
 from pydantic import Field, BaseModel
 
 APPOINTMENT_LOWER_LIMIT_MINUTES = 1
@@ -31,5 +31,3 @@ class AppointmentDistribution(BaseModel):
         Create the probability density function for the distribution
         """
         return DIST_TYPES[self.dist_type].pdf(x=x, **self.params)
-
-

@@ -13,6 +13,11 @@ jobs:
     notebooks:
         runs-on: ubuntu-latest
         steps:
+            # Step to convert YAML to Markdown
+            - name: Convert YAML to Markdown
+              run: |
+                  python src/catalog_to_markdown.py
+            # Step to run notebooks
             - name: Run notebooks
               uses: ./.github/workflows/notebook_run.yml
 
@@ -42,22 +47,17 @@ jobs:
               with:
                   name: notebook-outputs
                   path: outputs/tables
-
+                  
             # - name: Run simulation
             #   run: |
             #       python -m  src.main
 
             - name: Store simulation outputs
-            # 
               uses: actions/upload-artifact@v3
               with:
               # upload all of 'outputs' directory
               # upload notebooks as html
                 path: |
-                  ${{ env.SIMULATION_OUTPUTS }}
-                    
+                  ${{ env.SIMULATION_OUTPUTS }} 
                 # name the artifact
                 name: simulation-outputs
-
-                
-

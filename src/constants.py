@@ -59,12 +59,32 @@ NOTEBOOK_OUTPUT_TABLES_PATH:Final[str] = NOTEBOOK_OUTPUT_BASE_PATH + "tables/"
 NOTEBOOK_OUTPUT_FIGURES_PATH:Final[str] = NOTEBOOK_OUTPUT_BASE_PATH + "plots/"
 SIMULATION_RESULTS_PATH:Final[str] = NOTEBOOK_OUTPUT_BASE_PATH + "simulation_results/"
 
-
-
 GP_LIST_AGE_BANDS:Final[List[int]] = [i for i in range(0, 95, 5)] + [200]
 GP_LIST_AGE_LABELS:Final[List[str]] = [f"{i}-{i+4}" for i in GP_LIST_AGE_BANDS[:-2]] + ["90+"]
 
 
-WORKFORCE_ADMIN_REQUIREMENTS_FILENAME  ="workforce_admin_fte_requirements.yaml"
-WORKFORCE_NON_GP_CLINICAL_STAFF_SPLIT_FILENAME = "workforce_non_gp_clinical_staff_mix.yaml"
-WORKFORCE_CURRENT_STAFF_FTE = "workforce_current_staff_fte.yaml"
+#notebook 1a
+APPOINTMENT_DURATION_OUTPUT_FILENAME = "outputs/appointment_durations.yaml"
+
+#notebook 1b
+APPOINTMENTS_DNA_OUTPUT_FILENAME = "outputs/appointment_dna.yaml"
+APPOINTMENT_MODE_PROPENSITY_OUTPUT_FILENAME = "outputs/appointment_modes.yaml"
+STAFF_TYPE_PROPENSITY_OUTPUT_FILENAME = "outputs/staff_propensity.yaml"
+
+#notebook 1c
+POPULATION_PROJECTIONS_OUTPUT_FILENAME = "outputs/population_projections.yaml"
+SAME_DAY_APPOINTMENT_OUTPUT_FILENAME = "outputs/same_day_appointment.yaml"
+
+#notebook 1d
+ACUTE_REFERRAL_RATES_OUTPUT_FILENAME = "outputs/acute_referral_rates.yaml"
+
+#notebook 2a
+APPOINTMENTS_REGRESSION_MODEL_FILENAME= "outputs/demographic-month-sklearn.pkl"
+
+#notebook 2b
+SARIMA_FORECAST_OUTPUT_FILENAME = "outputs/forecasts-SARIMA.yaml"
+
+# notebook 2c
+WORKFORCE_ADMIN_REQUIREMENTS_FILENAME  ="outputs/workforce_admin_fte_requirements.yaml"
+WORKFORCE_NON_GP_CLINICAL_STAFF_SPLIT_FILENAME = "outputs/workforce_non_gp_clinical_staff_mix.yaml"
+WORKFORCE_CURRENT_STAFF_FTE = "outputs/workforce_current_staff_fte.yaml"

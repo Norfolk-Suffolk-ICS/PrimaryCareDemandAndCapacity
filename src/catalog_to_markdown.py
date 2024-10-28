@@ -1,13 +1,10 @@
 from string import Template
 import datetime as dt
-
 import pandas as pd
+from schemas import DataCatalog
 
-from src.schemas import DataCatalog
 
-
-OUTPUT_MARKDOWN_FILE  = "staticWebsite/content/data_catalog.md"
-
+OUTPUT_MARKDOWN_FILE  = "PelicanWebsite/content/data-catalogue/data_catalogue.md"
 
 DATASET_COLUMN_MAPPING = {
     "name" : "Name",
@@ -17,22 +14,22 @@ DATASET_COLUMN_MAPPING = {
     "csv_file" : "Specific Source",
     }
 
-MARKDOWN_TEMPLATE = Template("""Title: Data Catalog
+MARKDOWN_TEMPLATE = Template("""Title: Data Catalogue
 Date: $current_datetime
 Modified: $current_datetime
-Category: DataCatalog
-Tags: catalog, data, nhs-england, ons, population, scenarios
-Slug: data-catalog
-Authors: Andrew Jarman, Ibrahim Khan
-Summary: Data Catalogue for the SNEE-ICS Demand and Capacity Modelling project.
+Category: Data Catalogue
+Authors: A.Jarman & I.Khan
+Summary: A list of all the Datasets used in the analysis for the SNEE-ICS Demand and Capacity Modelling project.
 
 ## NHS England Datasets\n
 <!-- START TABLE 1-->\n
 $table1
+<br>
 <!-- END TABLE 1-->\n
 ## ONS Population Scenarios\n
 <!-- START TABLE 2-->\n
 $table2
+<br><hr><br>
 <!-- END TABLE 2-->\n
 """)
 
@@ -53,7 +50,6 @@ def create_link(url:str, text:str='Source')->str:
         HTML chunk for a link
     """
     return f"<a href='{url}'>{text}</a>"
-
 
 
 if __name__ == '__main__':  
@@ -86,13 +82,3 @@ if __name__ == '__main__':
     with open(OUTPUT_MARKDOWN_FILE, "w") as md_file:
         file_content = MARKDOWN_TEMPLATE.substitute(current_datetime=dt.datetime.now().isoformat(),**tables) 
         md_file.write(file_content)
-
-
-
-
-
-    
-        
-
-
-

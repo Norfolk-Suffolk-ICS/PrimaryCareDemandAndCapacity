@@ -43,7 +43,7 @@ scenario_data_sources:
 
 single_data_sources:
   - name: NHS GP Appointments by Region
-    description: NHS England / digital published version of GP appointments, by sub-ICB area.
+    description: NHS England / digital published version of GP appointments, by sub-ICB area. (Aug-2024)
     source_type: csv_in_zip
     load_as: dataframe
     zip_url: https://files.digital.nhs.uk/D5/4B437E/Appointments_GP_Regional_CSV_Aug_24.zip
@@ -51,7 +51,7 @@ single_data_sources:
     website_url: https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice
 
   - name: NHS GP Appointments by Region, historical
-    description: NHS England / digital published version of GP appointments, by sub-ICB area.
+    description: NHS England / digital published version of GP appointments, by sub-ICB area. (Jul-2024)
     source_type: csv_in_zip
     load_as: dataframe
     zip_url: https://files.digital.nhs.uk/6E/998DC7/Appointments_GP_Regional_CSV_Jul_24.zip 

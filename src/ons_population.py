@@ -2,16 +2,14 @@
 from typing import Final, Dict, Type, Literal
 import pandas as pd
 
-from src.schemas import DataCatalogEntry
-import src.constants as const
+from schemas import DataCatalogEntry
+import constants as const
 
 
 DEFAULT_AGE_BINS = 5
 DEFAULT_TIME_PERIOD = 'daily'
 
 class ONSPopulationScenario:
-
-
 
     def __init__(self, ons_catalog_entry: Type[DataCatalogEntry]):
         self.ons_catalog_entry = ons_catalog_entry

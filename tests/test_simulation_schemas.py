@@ -4,7 +4,7 @@ from ..src.simulation_schemas import (
     AreaAppointmentTimeDistributions, 
     AppointmentTimeDistributions, 
     DidNotAttendRatesByArea, 
-    AreaDidNotAttendRates, 
+    DidNotAttendRates, 
     StaffPropensityByArea, 
     AppointmentStaffChoice,
     DeliveryPropensityByArea,
@@ -50,8 +50,8 @@ def test_did_not_attend_load_yaml():
     assert isinstance(did_not_attend_rates, DidNotAttendRatesByArea)
     for k, v in did_not_attend_rates.model_dump().items():
         assert isinstance(k, str)
-        v_class = AreaDidNotAttendRates(**v)
-        assert isinstance(v_class, AreaDidNotAttendRates)
+        v_class = DidNotAttendRates(**v)
+        assert isinstance(v_class, DidNotAttendRates)
 
 
 def test_staff_propensity_yaml():

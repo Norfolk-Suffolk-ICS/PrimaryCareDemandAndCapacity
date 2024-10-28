@@ -170,3 +170,8 @@ staticWebsite/content/img/appointment_duration_*.png
 staticWebsite/content/img/demographic_pop_growth_*.png
 staticWebsite/content/data_catalog.md
 staticWebsite/content/notebooks_html/*.html
+
+PelicanWebsite/output/*
+PelicanWebsite/content/notebooks-html/*
+PelicanWebsite/content/data-catalogue.md
+PelicanWebsite/content/notebooks-html/*.html
