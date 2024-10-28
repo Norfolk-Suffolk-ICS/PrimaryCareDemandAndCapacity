@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 import yaml
 import pandas as pd
 
-import constants as const
+import src.constants as const
 
 
 class DataCatalogEntryType(Enum):
