@@ -5,7 +5,7 @@ Category: About SNEE-IF
 Author: A.Jarman & I.Khan
 Summary: Learn more about the purpose of this site and its creator.
 
-This platform is designed to showcase data analytics and capacity planning projects. Our goal is to assess the capacity requirements in primary care to meet current and future demand in SNEE.<br><br>
+Our aim to create this platform is to evaluate the capacity needs in primary care to address current and future demand within SNEE.<br><br>
 
 ## Our Mission statement
 A system-wide, multi-disciplinary analytical collaborative that produces high-quality, locally tailored intelligence from data analytics, to enable leaders at all levels of the Suffolk and North East Essex Integrated Care System to make decisions informed by evidence when planning and delivering care.​<br>​<br>
