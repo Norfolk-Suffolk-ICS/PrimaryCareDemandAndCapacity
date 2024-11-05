@@ -27,19 +27,19 @@ The primary data used for this analysis is derived from the extensive dataset pr
         <tr>
             <td>NHS GP Appointments by Region</td>
             <td>This dataset spans from Nov 2021 to Apr 2024, providing current GP appointment data at a SUB-ICB level, including details on healthcare professional types, appointment counts, and months.</td>
-            <td><a href="https://files.digital.nhs.uk/A4/53CF11/Appointments_GP_Regional_CSV_Apr_24.zip">NHS GP Appointments by Region</a></td>
+            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice", target=blank>NHS GP Appointments by Region</a></td>
             <td><a href="https://files.digital.nhs.uk/A4/53CF11/Appointments_GP_Regional_CSV_Apr_24.zip">Download</a></td>
         </tr>
         <tr>
             <td>NHS GP Appointments Historical Data</td>
             <td>This historical dataset covers Oct 2019 to Mar 2022, allowing analysis of GP appointments trends, with details on healthcare professional types and appointment counts.</td>
-            <td><a href="https://files.digital.nhs.uk/CF/699F6F/Appointments_GP_Regional_Mar_22.zip">NHS GP Appointments Historical Data</a></td>
+            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice", target=blank>NHS GP Appointments Historical Data</a></td>
             <td><a href="https://files.digital.nhs.uk/CF/699F6F/Appointments_GP_Regional_Mar_22.zip">Download</a></td>
         </tr>
         <tr>
             <td>Population Projections for CCGs by ONS</td>
             <td>Used for forward-looking appointment estimates in the model, based on 2018 projections revised in 2020. Data is at the CCG (now SUB-ICB) level.</td>
-            <td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/clinicalcommissioninggroupsinenglandz2">ONS Population Projections</a></td>
+            <td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/clinicalcommissioninggroupsinenglandz2", target=blank>ONS Population Projections</a></td>
             <td>N/A</td>
         </tr>
     </tbody>

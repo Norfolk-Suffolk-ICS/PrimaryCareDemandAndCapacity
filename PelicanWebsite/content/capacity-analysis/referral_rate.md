@@ -26,12 +26,12 @@ For this analysis, the primary data sources utilized were NHS England's referral
     <tbody>
         <tr>
             <td>Referrals dataset</td>
-            <td><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/outpatient-referrals/">NHS England - Outpatient Referrals</a></td>
+            <td><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/outpatient-referrals/", target=blank>NHS England - Outpatient Referrals</a></td>
             <td><a href="https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/05/Annual-CSV-2023-24-Published-May-2024-59834-1.zip">Annual CSV 2023-24 Published May 2024</a></td>
         </tr>
         <tr>
             <td>Appointments dataset</td>
-            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice">NHS Digital - Appointments in General Practice</a></td>
+            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice", target=blank>NHS Digital - Appointments in General Practice</a></td>
             <td><a href="https://files.digital.nhs.uk/D5/4B437E/Appointments_GP_Regional_CSV_Aug_24.zip">Regional CSV SuffolkNEEssex (Mar22 - Aug24)</a></td>
         </tr>
     </tbody>
