@@ -23,7 +23,6 @@ from src.constants import (SARIMA_FORECAST_OUTPUT_FILENAME,
 
 from src.simulation import (SimulationData, 
                             DailyRegionalModel)
-from src.simulation_schemas import SimulationOutputs
 
 # Configure logging
 log_filename = f"outputs/simulation_log_{datetime.now(tz=pytz.timezone('UTC')).isoformat()}.txt"
@@ -100,10 +99,19 @@ def run_simulation(start_date:dt.date,end_date:dt.date, n_runs:int):
 
 if __name__ == '__main__':
         
+    
+    start_time = datetime.now()
+    logging.info(f"Simulation started at {start_time}")
+
     simulation_outputs = run_simulation(
         start_date = dt.date(2024,6,1),
         end_date = dt.date(2025,5,31),
         n_runs=2)
     # save the outputs
+
+    end_time = datetime.now()
+    logging.info(f"Simulation ended at {end_time}")
+    logging.info(f"Total time taken for simulation: {end_time - start_time}")
+
     with open('outputs/simulation_outputs.json', 'w') as f:
         json.dump(simulation_outputs, f)
