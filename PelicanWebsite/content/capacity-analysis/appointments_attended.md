@@ -24,7 +24,7 @@ The primary data for this analysis is derived from the extensive appointments da
     <tbody>
         <tr>
             <td>Appointments dataset</td>
-            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice">NHS Digital - Appointments in General Practice</a></td>
+            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice", target=blank>NHS Digital - Appointments in General Practice</a></td>
             <td><a href="https://files.digital.nhs.uk/D5/4B437E/Appointments_GP_Regional_CSV_Aug_24.zip">Regional CSV SuffolkNEEssex (Mar22 - Aug24)</a></td>
         </tr>
     </tbody>

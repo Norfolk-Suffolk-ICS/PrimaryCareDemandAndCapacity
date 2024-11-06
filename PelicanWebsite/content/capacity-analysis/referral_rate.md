@@ -26,12 +26,12 @@ For this analysis, the primary data sources utilized were NHS England's referral
     <tbody>
         <tr>
             <td>Referrals dataset</td>
-            <td><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/outpatient-referrals/">NHS England - Outpatient Referrals</a></td>
+            <td><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/outpatient-referrals/", target=blank>NHS England - Outpatient Referrals</a></td>
             <td><a href="https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/05/Annual-CSV-2023-24-Published-May-2024-59834-1.zip">Annual CSV 2023-24 Published May 2024</a></td>
         </tr>
         <tr>
             <td>Appointments dataset</td>
-            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice">NHS Digital - Appointments in General Practice</a></td>
+            <td><a href="https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice", target=blank>NHS Digital - Appointments in General Practice</a></td>
             <td><a href="https://files.digital.nhs.uk/D5/4B437E/Appointments_GP_Regional_CSV_Aug_24.zip">Regional CSV SuffolkNEEssex (Mar22 - Aug24)</a></td>
         </tr>
     </tbody>
@@ -39,7 +39,13 @@ For this analysis, the primary data sources utilized were NHS England's referral
 <br>
 
 ## Methodology
-The initial step involved filtering the referrals dataset to collate the total number of referrals directed to all ICBs between April 2023 and March 2024 within the three SNEE areas—namely, Ipswich & East Suffolk (06L), West Suffolk (07K), and North East Essex (06T). Simultaneously, the appointments dataframe underwent a cleaning process where 'Unknown' entries under HCP-type were replaced with 'Other practice staff'. Subsequently, this dataset was filtered akin to the referrals dataset.
+Before the analysis, the data was pre-processed.
+
+- Appointments dataframe underwent a cleaning process where 'Unknown' entries under HCP-type were replaced with 'Other practice staff'.
+- Extra columns were dropped from both the datasets
+- Filtering the datsets to only keep records for SNEE-ICB
+  
+The initial step involved grouping the dataset to get the total number of referrals to each SUB-ICB areas between April 2023 and March 2024 namely, Ipswich & East Suffolk (06L), West Suffolk (07K), and North East Essex (06T).
 
 Upon preparing both datasets, the referral rate for each SNEE-ICB area was computed by dividing the referrals dataset by the appointments dataset. The resulting table, included at the conclusion of this document, outlines the referral rates for each SNEE SUB-ICB area concerning GP and Other practice staff.
 <br><br>
