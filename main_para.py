@@ -6,7 +6,6 @@ import random
 from collections import defaultdict
 from typing import Dict, Literal, Optional, Union, Tuple
 from tqdm import tqdm
-from icecream import ic
 import json
 import multiprocessing as mp
 from functools import partial
