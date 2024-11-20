@@ -69,10 +69,10 @@ GP_LIST_AGE_LABELS:Final[List[str]] = [f"{i}-{i+4}" for i in GP_LIST_AGE_BANDS[:
 
 
 #notebook 1a
-APPOINTMENT_DURATION_OUTPUT_FILENAME = "outputs/appointment_durations.yaml"
+APPOINTMENT_DURATION_OUTPUT_FILENAME = "outputs/assumptions/appointment_durations.yaml"
 
 #notebook 1b
-APPOINTMENTS_DNA_OUTPUT_FILENAME = "outputs/appointments_dna.yaml"
+APPOINTMENTS_DNA_OUTPUT_FILENAME = "outputs/appointment_dna.yaml"
 APPOINTMENT_MODE_PROPENSITY_OUTPUT_FILENAME = "outputs/appointment_modes.yaml"
 STAFF_TYPE_PROPENSITY_OUTPUT_FILENAME = "outputs/staff_propensity.yaml"
 

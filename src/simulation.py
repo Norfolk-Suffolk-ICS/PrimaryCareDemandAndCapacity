@@ -18,7 +18,8 @@ from src.constants import (SARIMA_FORECAST_OUTPUT_FILENAME,
                            APPOINTMENT_MODE_PROPENSITY_OUTPUT_FILENAME, 
                            POPULATION_PROJECTIONS_OUTPUT_FILENAME,
                            ACUTE_REFERRAL_RATES_OUTPUT_FILENAME,
-                           WORKFORCE_CURRENT_STAFF_FTE)
+                           WORKFORCE_CURRENT_STAFF_FTE,
+                           APPOINTMENTS_DNA_OUTPUT_FILENAME)
 
 HOURS_PER_DAY = 7.5
 MINUTES_PER_HOUR = 60
@@ -114,7 +115,7 @@ class SimulationData:
         # staffing levels
         self.staff_fte = ClinicalStaffFTEByArea.read_yaml(WORKFORCE_CURRENT_STAFF_FTE)
         # prpoensity to attend
-        self.did_not_attend_rates = DidNotAttendRatesByArea.read_yaml("outputs/assumptions/dna_appointments.yaml")
+        self.did_not_attend_rates = DidNotAttendRatesByArea.read_yaml(APPOINTMENTS_DNA_OUTPUT_FILENAME)
         # DEMAND SCENARIOS
         self.appointment_forecasts = {'SARIMA' : DailyForecastAppointmentsByArea.read_yaml(SARIMA_FORECAST_OUTPUT_FILENAME),
                                     #   'Regression - Principal Projection': None,
