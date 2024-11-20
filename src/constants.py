@@ -67,7 +67,7 @@ GP_LIST_AGE_LABELS:Final[List[str]] = [f"{i}-{i+4}" for i in GP_LIST_AGE_BANDS[:
 APPOINTMENT_DURATION_OUTPUT_FILENAME = "outputs/appointment_durations.yaml"
 
 #notebook 1b
-APPOINTMENTS_DNA_OUTPUT_FILENAME = "outputs/appointment_dna.yaml"
+APPOINTMENTS_DNA_OUTPUT_FILENAME = "outputs/appointments_dna.yaml"
 APPOINTMENT_MODE_PROPENSITY_OUTPUT_FILENAME = "outputs/appointment_modes.yaml"
 STAFF_TYPE_PROPENSITY_OUTPUT_FILENAME = "outputs/staff_propensity.yaml"
 
@@ -84,7 +84,7 @@ APPOINTMENTS_REGRESSION_MODEL_FILENAME= "outputs/demographic-month-sklearn.pkl"
 #notebook 2b
 SARIMA_FORECAST_OUTPUT_FILENAME = "outputs/forecasts-SARIMA.yaml"
 
-# notebook 2c
+#notebook 2c
 WORKFORCE_ADMIN_REQUIREMENTS_FILENAME  ="outputs/workforce_admin_fte_requirements.yaml"
 WORKFORCE_NON_GP_CLINICAL_STAFF_SPLIT_FILENAME = "outputs/workforce_non_gp_clinical_staff_mix.yaml"
 WORKFORCE_CURRENT_STAFF_FTE = "outputs/workforce_current_staff_fte.yaml"
