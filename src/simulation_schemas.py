@@ -358,10 +358,21 @@ class AppointmentStaffChoice(SumTo1Choice):
     
 
 class StaffPropensityByArea(RootModel[Dict[str, AppointmentStaffChoice]], YamlLoader, AreaModel):
-    """Class to load and validate the staff type propensity yaml file for a yaml file of areas"""
+    """Class to load and validate the staff type propensity yaml file staff propensity by areas"""
 
     def pick_staff_type(self, area: str) -> str:
-        # randomly choose a staff type depending on the area
+        """Given a sub ICB area, randomly pick a staff type for a single appointment based on their pre-defined propensity. g
+
+        Parameters
+        ----------
+        area : str
+            sub-icb area code eg. '07K'
+
+        Returns
+        -------
+        str
+            a staff type represented as a string.
+        """
         area_model:AppointmentStaffChoice = self.get_area(area)
 
         return area_model.pick()
@@ -396,7 +407,9 @@ class DeliveryPropensityByArea(RootModel[Dict[str, DeliveryPropensityByStaff]], 
 
 
 class MonthlyAppointmentForecast(RootModel[Dict[str,Dict[dt.date, int]]], YamlLoader, AreaModel):
-    """Class to load and validate monthly appointments, this is in appointments per day"""
+    """
+    Class to load and validate monthly appointments, this is in appointments per day.
+    """
 
     def get_forecast(self, area:str, date:dt.date)->int:
         area_forecast = self.get_area(area)
@@ -406,6 +419,12 @@ class MonthlyAppointmentForecast(RootModel[Dict[str,Dict[dt.date, int]]], YamlLo
 
 
 class ClinicalStaffFTE(BaseModel):
+    """
+    Base model used to load and validate staff FTE in sub-icb areas, 
+    FTE is represented as a floating point number (usually 1). 
+    At the moment this only supports 4 staff 'categories'
+    """
+    
     gp: float = Field(..., alias="GP")
     direct_patient_care:float = Field(...,alias="Direct Patient Care")
     nurses:float =  Field(..., alias="Nurses")
@@ -417,6 +436,9 @@ class ClinicalStaffFTEByArea(RootModel[Dict[str, ClinicalStaffFTE]], YamlLoader,
     
     
 class NonGPStaffMix(BaseModel):
+    """
+    Base model used to represent the proportion of non-GP clinical staff in each sub-icb area.
+    """
     advanced_nurse_practictioners:float = Field(..., alias="Advanced Nurse Practitioners", gte=0.0, lte=1.0)
     direct_patient_care:float = Field(..., alias="Direct Patient Care", gte=0.0, lte=1.0)
     nurses:float = Field(..., alias="Nurses", gte=0.0, lte=1.0)
@@ -444,22 +466,28 @@ class DailyForecastAppointmentsByArea(RootModel[Dict[str, DailyForecastAppointme
     """Class to load and validate the daily forecast appointments yaml file for a yaml file of areas"""
 
 class AcuteReferralRates(BaseModel):
-    gp: float= Field(alias="GP_Ref_rate")
-    other: float = Field(alias="Others_Ref_rate")
+    """
+    Model to hold the 
+    """
+    gp: float= Field(alias="GP_Ref_rate", gte=0.0, lte=0.0)
+    other: float = Field(alias="Others_Ref_rate", gte=0.0, lte=0.0)
     
     def did_refer(self, staff_type:str)->bool:
         """returns True if the patient was referred"""
         random_num = random.random()
-        # get the propensity for the given staff type
+        # get the propensity for the given staff type.
         propensity = getattr(self, staff_type.lower().replace(" ","_"))
-        # if the random number is less than the propensity (0-1), the patient was referred
+        # if the random number is less than the propensity (0-1), the patient was referred.
         return random_num < propensity
 
 class AcuteReferralRatesByArea(RootModel[Dict[str, AcuteReferralRates]], YamlLoader, AreaModel):
     """Class to load and validate the acute referral rates yaml file for a yaml file of areas"""
     
     def did_refer(self, area:str, staff_type:str)->bool:
-        """returns True if the patient was referred"""
+        """
+        
+        
+        """
         area_rates:AcuteReferralRates = self.get_area(area)
         return area_rates.did_refer(staff_type)
     
