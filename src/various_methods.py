@@ -70,6 +70,13 @@ def calc_oadr_status(ons_age_group:str):
     else:
         return None
     
+# Function to perform sin/cos transformation
+def sin_cos_transformer(X):
+    angle = 2 * np.pi * X / 12
+    sin_component = np.sin(angle)
+    cos_component = np.cos(angle)
+    return np.column_stack((sin_component, cos_component))
+
 
 @dataclass
 class PlotCounter:
@@ -173,4 +180,3 @@ class ModelWrapper:
             array-like: The predicted values from the model.
         """
         return self.model.predict(X)
-

@@ -52,6 +52,11 @@ ICB_ONS_AREAS:Final[Dict[str,str]] = {"Tendring": NE_ESSEX,
 #ORG Code
 ORG_CODE:Final[Dict[str,str]] = {'QJG': 'NHS SUFFOLK AND NORTH EAST ESSEX INTEGRATED CARE BOARD'}
 
+# EU Standard Population
+eu_standard_population = {'0_4': 5000, '5_9': 5500, '10_14': 5500, '15_19': 5500, '20_24': 6000, '25_29': 6000, '30_34': 6500, '35_39': 7000, '40_44': 7000,
+    '45_49': 7000,'50_54': 7000,'55_59': 6500,'60_64': 6000,'65_69': 5500,'70_74': 5000,'75_79': 4000,'80_84': 2500,'85_89': 1500,'90+': 1000
+}
+
 # Location for outputs
 # these are all relative to the repo root directory ! 
 NOTEBOOK_OUTPUT_BASE_PATH:Final[str] = "outputs/"
