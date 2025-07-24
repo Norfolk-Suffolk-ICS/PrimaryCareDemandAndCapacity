@@ -111,7 +111,8 @@ scipy==1.13.0
 seaborn==0.13.2
 setuptools==75.6.0
 six==1.16.0
-sneeifstyles @ git+https://github.com/SNEE-ICS/sneeifstyles.git@4c49ce201bbbbd9b5f269d3da4f3813b633c2d11
+#sneeifstyles @ git+https://github.com/SNEE-ICS/sneeifstyles.git@4c49ce201bbbbd9b5f269d3da4f3813b633c2d11
+SNEE_utils @ git+https://github.com/SNEE-ICS/SNEE_Utils.git
 sniffio==1.3.0
 stack-data==0.6.3
 statsmodels==0.14.1
