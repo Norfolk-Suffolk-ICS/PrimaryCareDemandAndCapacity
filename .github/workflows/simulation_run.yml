@@ -13,13 +13,14 @@ jobs:
     notebooks:
         runs-on: ubuntu-latest
         steps:
-            # Step to convert YAML to Markdown
+            - name: Checkout        # ← add this
+              uses: actions/checkout@v4
+              with:
+                ref: ${{ inputs.branch_name }}
+                
             - name: Convert YAML to Markdown
               run: |
                   python src/catalog_to_markdown.py
-            # Step to run notebooks
-            - name: Run notebooks
-              uses: ./.github/workflows/notebook_run.yml
 
     simulation:
         runs-on: ubuntu-latest
@@ -28,7 +29,7 @@ jobs:
           SIMULATION_OUTPUTS_PATH: outputs/simulation_results/
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
               with:
                 ref: ${{ inputs.branch_name }}
 
