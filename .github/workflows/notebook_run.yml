@@ -37,7 +37,7 @@ jobs:
           done < notebooks.txt
       - name: Store data/plot artifacts
         # 
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           # upload all of 'outputs' directory
           # upload notebooks as html

@@ -53,7 +53,7 @@ jobs:
             #       python -m  src.main
 
             - name: Store simulation outputs
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
               # upload all of 'outputs' directory
               # upload notebooks as html
