@@ -3,7 +3,7 @@ Date: 2024-01-04
 Modified: 2024-10-11
 Category: Capacity Analysis
 Authors: A.Jarman & I.Khan
-Summary: Analysis on primary care appointments (Attended/DNA) in SNEE-ICB
+Summary: Analysis on primary care appointments (Attended/DNA) in Norfolk and Suffolk-ICB
 
 <br>
 

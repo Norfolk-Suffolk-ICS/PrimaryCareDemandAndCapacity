@@ -16,7 +16,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
-THEME = "snee_theme"
+THEME = "ns_theme"
 STATIC_PATHS = ['img','extras','notebooks-html']
 #PAGE_PATHS = ['notebooks-html']
 

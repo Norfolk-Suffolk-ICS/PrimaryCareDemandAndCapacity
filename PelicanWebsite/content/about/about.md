@@ -1,11 +1,11 @@
-Title: About SNEE Intelligence Function
+Title: About Norfolk and Suffolk Intelligence Function
 Date: 2024-10-04
 Modified: 2024-10-10
-Category: About SNEE-IF
+Category: About NS-IF
 Author: A.Jarman & I.Khan
 Summary: Learn more about the purpose of this site and its creator.
 
-Our aim to create this platform is to evaluate the capacity needs in primary care to address current and future demand within SNEE.<br><br>
+Our aim to create this platform is to evaluate the capacity needs in primary care to address current and future demand within Norfolk and Suffolk.<br><br>
 
 ## Our Mission statement
 A system-wide, multi-disciplinary analytical collaborative that produces high-quality, locally tailored intelligence from data analytics, to enable leaders at all levels of the Suffolk and North East Essex Integrated Care System to make decisions informed by evidence when planning and delivering care.​<br>​<br>
@@ -13,7 +13,7 @@ A system-wide, multi-disciplinary analytical collaborative that produces high-qu
 
 ## Who we are
 #### An analytical collaborative across health and care
-The SNEE Intelligence Function is a partnership of analytical teams across health and care organisations in the Integrated Care System, facilitated by a ‘hub’ of data analysts in Suffolk County Council and the Integrated Care Board.
+The Norfolk and Suffolk Intelligence Function is a partnership of analytical teams across health and care organisations in the Integrated Care System, facilitated by a ‘hub’ of data analysts in Suffolk County Council and the Integrated Care Board.
 We form ‘virtual’ teams of data analysts to work together to answer challenging questions of common interest to all partners in the Integrated Care System.<br>​<br>
 
 
@@ -35,5 +35,5 @@ Explore our website for more information and valuable resources -->
 <a href="https://www.sneeics.org.uk/can-do-health-and-care/creative/knowledge-and-intelligence/" target="_blank" rel="noopener noreferrer">Explore More!</a>
 <br>
 Moreover, If you're tech-savvy, dive into our GitHub page for a sneak peek into our code and projects! --> 
-<a href="https://github.com/SNEE-ICS" target="_blank" rel="noopener noreferrer">Geek Out Here!</a>
+<a href="https://github.com/Norfolk-Suffolk-ICS" target="_blank" rel="noopener noreferrer">Geek Out Here!</a>
 <br><hr><br>

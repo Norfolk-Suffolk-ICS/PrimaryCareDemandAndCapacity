@@ -8,14 +8,14 @@ sys.path.append(os.curdir)
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITENAME = 'Primary Care Demand and Capacity Modelling'
-SITEURL = "http://snee-ics.github.io/primarycaredemandandcapacity"
+SITEURL = "http://Norfolk-Suffolk-ICS.github.io/primarycaredemandandcapacity"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
-THEME = "snee_theme"
+THEME = "ns_theme"
 PATH = 'content'
 TIMEZONE = 'GMT'
 STATIC_PATHS = ['img','extras','notebooks-html']
