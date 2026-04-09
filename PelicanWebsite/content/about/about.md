@@ -1,4 +1,3 @@
-Title: About Norfolk and Suffolk Intelligence Function
 Slug: about
 Date: 2024-10-04
 Modified: 2024-10-10
@@ -6,8 +5,10 @@ Category: About
 Author: A.Jarman & I.Khan
 Summary: Learn more about the purpose of this site and its creator.
 
+
 <img src="https://norfolk-suffolk-ics.github.io/PrimaryCareDemandAndCapacity/theme/images/Norfolk_Suffolk_map.png" alt="Ares Map"/>
 
+<br>
 Our aim to create this platform is to evaluate the capacity needs in primary care to address current and future demand within Norfolk and Suffolk.<br><br>
 
 ## Our Mission statement
