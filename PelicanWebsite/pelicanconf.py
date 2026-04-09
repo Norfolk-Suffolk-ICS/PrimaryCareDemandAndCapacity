@@ -17,7 +17,7 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
 THEME = "ns_theme"
-STATIC_PATHS = ['img','extras','notebooks-html','about']
+STATIC_PATHS = ['img','extras','notebooks-html']
 #PAGE_PATHS = ['notebooks-html']
 
 EXTRA_PATH_METADATA = {
@@ -27,7 +27,9 @@ EXTRA_PATH_METADATA = {
     'notebooks-html/Referral_rate_4_sankey.html': {'path': 'Referral_rate_4_sankey.html'},
 }
 
-ARTICLE_EXCLUDES = ['notebooks-html','about']
+ARTICLE_EXCLUDES = ['notebooks-html']
+
+PAGE_PATHS = ['pages']
 
 # # Blogroll
 # LINKS = (

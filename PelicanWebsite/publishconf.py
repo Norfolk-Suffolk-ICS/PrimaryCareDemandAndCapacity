@@ -18,7 +18,7 @@ DELETE_OUTPUT_DIRECTORY = True
 THEME = "ns_theme"
 PATH = 'content'
 TIMEZONE = 'GMT'
-STATIC_PATHS = ['img','extras','notebooks-html','about']
+STATIC_PATHS = ['img','extras','notebooks-html']
 #PAGE_PATHS = ['notebooks-html']
 PAGE_ORDER_BY = 'order'
 ARTICLE_ORDER_BY = 'order'
@@ -36,7 +36,8 @@ EXTRA_PATH_METADATA = {
     'notebooks-html/Referral_rate_4_sankey.html': {'path': 'Referral_rate_4_sankey.html'},
 }
 
-ARTICLE_EXCLUDES = ['notebooks-html','about']
+ARTICLE_EXCLUDES = ['notebooks-html']
+PAGE_PATHS = ['pages']
 
 
 # Following items are often useful when publishing
