@@ -9,7 +9,7 @@ import pelicanconf
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITENAME = 'Primary Care Demand and Capacity Modelling'
-SITEURL = "http://snee-ics.github.io/primarycaredemandandcapacity"
+SITEURL = "http://Norfolk-Suffolk-ICS.github.io/primarycaredemandandcapacity"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
