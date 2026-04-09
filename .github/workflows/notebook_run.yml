@@ -1,4 +1,4 @@
-name: Run Jupyter notebooks and publish outputs
+name: Run notebook and publish outputs
 
 on: [workflow_dispatch, workflow_call]
 
