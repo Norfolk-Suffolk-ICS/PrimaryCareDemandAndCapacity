@@ -5,7 +5,7 @@ Category: About NS-IF
 Author: A.Jarman & I.Khan
 Summary: Learn more about the purpose of this site and its creator.
 
-<img src="https://norfolk-suffolk-ics.github.io/PrimaryCareDemandAndCapacity/theme/images/Norfolk_Suffolk_map.png" alt="Ares Map"/>
+
 
 Our aim to create this platform is to evaluate the capacity needs in primary care to address current and future demand within Norfolk and Suffolk.<br><br>
 
