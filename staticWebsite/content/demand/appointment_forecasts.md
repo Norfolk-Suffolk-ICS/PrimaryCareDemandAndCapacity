@@ -1,18 +1,20 @@
-Title: Primary care appointment demand forecasting in SNEE<br>
-Date: 2024-01-04<br>
-Modified: 2024-10-01<br>
-Category: Analysis blogs<br>
-Tags: pelican, publishing<br>
-Slug: Appointments Forecast<br>
-Authors: Ibrahim, Andrew<br>
-Summary: Primary care appointment demand forecasting<br>
+Title: Primary care appointment demand forecasting in SNEE
+Date: 2024-01-04
+Modified: 2024-10-01
+Category: Analysis blogs
+Tags: pelican, publishing
+Slug: Appointments Forecast
+Authors: Ibrahim, Andrew
+Summary: Primary care appointment demand forecasting
 
 
 ## Introduction
+
 Appointment volumes have been increasing in SNEE. In order to estimate future appointments demand in the SNEE footprint, the project aims to leverage historical appointments data, analyze key patterns and trends, and develop a predictive/machine learning model to forecast the number of GP appointments at a regional level within the NHS framework. The project is focused on providing data-driven insights that can assist healthcare providers in better resource allocation, planning, and operational management. As patient numbers fluctuate due to various factors, predicting the number of future appointments can help mitigate overbooking or underutilization of healthcare services. The ultimate goal is to create a reliable and efficient predictive model that accounts for historical data and other relevant factors.
 
 
 ## Data source 
+
 The primary data used for this  analysis is derived from the extensive appointments dataset provided by NHS England. The primary datasets used include:
 - [NHS GP Appointments by Region](https://files.digital.nhs.uk/A4/53CF11/Appointments_GP_Regional_CSV_Apr_24.zip) : This dataset spans from November 2021 to April 2024, provides current information on GP appointments at a SUB-ICB (Integrated Care Board) level, including details such as healthcare professional types, appointment counts and appointment month.
 - [NHS GP Appointments Historical Data](https://files.digital.nhs.uk/CF/699F6F/Appointments_GP_Regional_Mar_22.zip) : This historical dataset, spans from October 2019 to March 2022, allows for the analysis of historical trends and patterns in GP appointments. It also includes details such as healthcare professional types, appointment counts and appointment month.
@@ -20,6 +22,7 @@ The primary data used for this  analysis is derived from the extensive appointme
 
 
 ## Methodology
+
 The predictive approach leverages machine learning techniques implemented through Scikit-learn, with particular focus on preprocessing large datasets, feature selection, and model evaluation using various metrics such as Mean Squared Error (MSE) and Root Mean Squared Error (RMSE). <br><br>
 <b>Data Loading and Preprocessing:</b>
 - Data from NHS GP appointments is loaded using pandas. Key variables such as appointment date, region, and healthcare provider type are selected for analysis.
@@ -52,15 +55,18 @@ Cos transformation: cos(2π×month/12)
 
 
 ## Primary care Appointments in England and SNEE-ICB 
+
 ![alt text](../../../outputs/plots/num_appointments_1.png)
 <br>
 ![alt text](../../../outputs/plots/num_appointments_2.png)
 
 ## Trend plot for Primary care Appointments/working-day in SNEE-ICB
+
 ![alt text](../../../outputs/plots/num_appointments_3.png)
 
 
 ## Statistical Forecast
+
 There is a clear 12-month observed where the number of appointments peaks around october each year. When correcting for the number of working days in a year, this observed seasonality becomes stronger.
 
 
@@ -76,6 +82,7 @@ There is a clear 12-month observed where the number of appointments peaks around
 
 
 ## Ridge Regression Models Outputs
+
 ![alt text](../../../outputs/plots/num_appointments_5.png)
 <b>Actual vs. Predicted Values (Left Plot):</b>
 - This plot compares the actual target values to the values predicted by the model.
@@ -96,5 +103,6 @@ There is a clear 12-month observed where the number of appointments peaks around
 
 
 ## Conclusion 
+
 <b>Overall: The model seems to perform reasonably well but not perfectly. The residuals are generally well-distributed, though there may be slight issues with heteroscedasticity and some outliers or non-normality in the residuals.
 The model’s predictions are close but not exact, and there may be some room for improvement in how it handles extreme values or certain ranges of the data. </b>
