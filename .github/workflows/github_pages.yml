@@ -40,7 +40,6 @@ jobs:
           name: notebook-outputs
           path: notebook-outputs/
           if_no_artifact_found: fail
-          branch: develop
       - name: Move plots to site directory
         # moves all files with .png to static website directory for images
         run: |
