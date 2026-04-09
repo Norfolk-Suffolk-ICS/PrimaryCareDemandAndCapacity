@@ -35,7 +35,7 @@ PAGE_ORDER_BY = 'order'
 
 ARTICLE_ORDER_BY = 'order'
 
-THEME = "snee_theme"
+THEME = "ns_theme"
 
 FILENAME_METADATA = '(?P<title>.*)'
 
