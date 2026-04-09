@@ -1,6 +1,8 @@
 Title: About Norfolk and Suffolk Intelligence Function
+Slug: about
 Date: 2024-10-04
 Modified: 2024-10-10
+Category: About
 Author: A.Jarman & I.Khan
 Summary: Learn more about the purpose of this site and its creator.
 

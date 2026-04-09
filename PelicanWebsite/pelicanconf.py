@@ -29,7 +29,6 @@ EXTRA_PATH_METADATA = {
 
 ARTICLE_EXCLUDES = ['notebooks-html']
 
-PAGE_PATHS = ['pages']
 
 # # Blogroll
 # LINKS = (

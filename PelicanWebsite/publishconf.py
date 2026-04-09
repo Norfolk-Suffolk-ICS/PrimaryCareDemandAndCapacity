@@ -37,7 +37,6 @@ EXTRA_PATH_METADATA = {
 }
 
 ARTICLE_EXCLUDES = ['notebooks-html']
-PAGE_PATHS = ['pages']
 
 
 # Following items are often useful when publishing
